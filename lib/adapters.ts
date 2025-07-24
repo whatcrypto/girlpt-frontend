@@ -37,7 +37,9 @@ export function fromAPI(
  */
 export function toAPI(messages: any[]): any[] {
   return messages.map((msg) => ({
-    
-    
+    role: msg.role,
+    content: Array.isArray(msg.content)
+      ? msg.content.map((c: any) => c.text).join("")
+      : msg.content,
   }));
 }
