@@ -17,6 +17,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "types": [
+      "react"
+    ],
     "plugins": [
       {
         "name": "next"
@@ -44,8 +47,14 @@
       "@/utils/*": [
         "./utils/*"
       ],
-      "@/ui/*": [
-        "./components/ui/*"
+      "@/public/*": [
+        "./public/*"
+      ],
+      "@/anime/*": [
+        "./public/girlfriend/anime/*"
+      ],
+      "@/realistic/*": [
+        "./public/girlfriend/realistic/*"
       ]
     }
   },
@@ -53,9 +62,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "app/(stripe)/join/components/checkoutButton.js",
-    "app/terms-of-service/page.tsX"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

@@ -1,4 +1,5 @@
-import { UIMessagesToAPI } from "@/lib/adapters";
+import { toAPI } from "@/lib/adapters";
+import { createSupabaseClient } from "@/lib/supabase/server";
 
 // Proper type definitions
 interface CharacterMetadata {
@@ -93,7 +94,7 @@ export async function POST(req: Request) {
     } = body;
 
     // Transform messages for backend
-    const backendMessages = UIMessagesToAPI(messages);
+    const backendMessages = toAPI(messages);
 
     // Prepare backend request
     const requestBody = {
@@ -226,3 +227,5 @@ export async function POST(req: Request) {
     );
   }
 }
+
+

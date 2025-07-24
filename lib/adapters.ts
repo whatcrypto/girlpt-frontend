@@ -1,11 +1,11 @@
 // Data transformers/adapters for API response formats
 
-interface Backend {
+interface fromBackend {
   content: string;
   role: string;
 }
 
-interface Frontend {
+interface toFrontend {
   choices: Array<{
     message: {
       content: string;
@@ -18,8 +18,8 @@ interface Frontend {
  * Transforms backend API response to user format
  */
 export function fromAPI(
-  message: Backend
-): Frontend {
+  message: fromBackend
+): toFrontend {
   return {
     choices: [
       {
@@ -37,9 +37,7 @@ export function fromAPI(
  */
 export function toAPI(messages: any[]): any[] {
   return messages.map((msg) => ({
-    role: msg.role,
-    content: Array.isArray(msg.content)
-      ? msg.content.map((c: any) => c.text).join("")
-      : msg.content,
+    
+    
   }));
 }
